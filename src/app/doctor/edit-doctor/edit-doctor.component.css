@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap%27');
+*{
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+list-style-type: none;
+text-decoration: none;
+font-family: 'Poppins', sans-serif;
+} 
+.sidebar{
+  width: 345px;
+  position: fixed;
+  left:0;
+  top:0;
+  height: 100%;
+  background:#01B99A ;
+}
+.sidebar-brand{
+  height:10px;
+  margin-bottom: 150px;
+  margin-left: 60px;
+
+}
+.im{
+  width:150px;
+  height: 150px;
+
+}
+.sidebar-menu{
+  margin-top: 1rem;
+}
+.sidebar-menu li {
+  width: 100%;
+  margin-bottom: 1.7rem;
+  padding-left: 1rem;
+
+}
+.sidebar-menu a {
+  padding-left: 1rem;
+  display: block;
+  color: #fff;
+  font-size: 1.1rem;
+}
+.sidebar-menu a span :first-child {
+  font-size: 1.5rem;
+  padding-right: 1rem;
+}
+.sidebar-menu a.active{
+  background:#fff;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  color: #01B99A;
+  border-radius: 30px 0px 0px 30px;
+  margin-right: 50px;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  padding-right: -90px;
+
+}
+.main-content{
+  margin-left: 345px;
+
+}
+header{
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+header h1 {
+  color: #222;
+}
+header label span {
+  font-size: 1.7rem;
+  padding-right: 1rem;
+}
+.search-wrapper{
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  overflow-x: hidden;
+
+}
+.search-wrapper span {
+  display: inline-block;
+  padding: 0rem 1rem;
+  font-size: 1.5rem;
+}
+.search-wrapper input{
+  height: 100%;
+  padding: .5rem;
+  border: none;
+  outline: none;
+}
+.user-wrapper{
+  display: flex;
+  align-items: center;
+
+}
+.user-wrapper img {
+  margin-right: 2rem;
+}
+.user-wrapper small {
+  display: inline-block;
+  color: #000000;
+}
+.dash{
+  display: flex;
+}
+.attend{
+  background:#01B99A;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  color: #fff;
+  border-radius: 30px 0px 0px 30px;
+  margin-right: 70px;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  padding: 13px;
+  margin-top: 30px;
+  
+}
+.active{
+  color: #fff;
+}
+
+/* Style the main container */
+.edit-doctor {
+    width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 90px;
+
+}
+
+/* Style the form header */
+.edit-doctor h2 {
+    
+    font-size: 24px;
+    margin-bottom: 20px;
+   
+        color: #333;
+        border-bottom: 2px solid #01B99A;
+        display: inline-block;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+        font-size: 24px;
+        text-align: center;
+}
+
+/* Style the form groups */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Style the form labels */
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Style the form inputs */
+.form-group input[type="number"],
+.form-group input[type="text"],
+.form-group input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Style the submit button */
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #01B99A;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Add some hover effect to the button */
+button[type="submit"]:hover {
+    background-color: #61c5b4;
+}
+
+

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionnaire Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .centered-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .inner-container {
+            width: 50%;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        h3 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        /* Style the radio buttons to match the button color */
+        .form-check-input:checked[type="radio"] {
+            background-color: #01B99A;
+            border-color: #01B99A;
+        }
+
+        .form-check-input[type="radio"]:not(:checked) {
+            background-color: #fff; /* Default background color */
+            border-color: #ccc; /* Default border color */
+        }
+
+        /* Style the radio button labels */
+        .form-check-label {
+            color: #333;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .btn-container {
+            text-align: center;
+        }
+
+        .btn {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: #01B99A;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #008b76;
+        }
+
+        .btn-secondary {
+            background-color: #ccc;
+            color: #333;
+        }
+
+        .btn-secondary:hover {
+            background-color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="centered-container">
+        <div class="inner-container">
+            <div class="container mt-5">
+                <h3>Questionnaire Form</h3>
+                <div *ngFor="let question of questions; let i = index">
+                    <!-- Only display the current question -->
+                    <div *ngIf="i === currentQuestionIndex" class="form-group">
+                        <label>{{ question.text }}</label>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" [name]="'question' + question.id"
+                                id="'yes' + question.id" value="yes" (change)="onRadioChange('yes')"
+                                [(ngModel)]="selectedOption">
+                            <label class="form-check-label" [for]="'yes' + question.id">Yes</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" [name]="'question' + question.id"
+                                id="'no' + question.id" value="no" (change)="onRadioChange('no')"
+                                [(ngModel)]="selectedOption">
+                            <label class="form-check-label" [for]="'no' + question.id">No</label>
+                        </div>
+
+                        <!-- Display the textarea if 'selectedOption' is 'yes' -->
+                        <div *ngIf="selectedOption === 'yes'" class="form-group">
+                            <label for="'textarea' + question.id">Additional Information:</label>
+                            <textarea class="form-control" id="'textarea' + question.id" [name]="'question' + question.id"
+                                rows="4" [(ngModel)]="questionResponses['question' + question.id]"
+                                (ngModelChange)="onTextareaChange(question.id, questionResponses['question' + question.id])"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="btn-container">
+                    <button *ngIf="currentQuestionIndex > 0" (click)="onPrev()" class="btn btn-secondary">Previous</button>
+                    <button *ngIf="currentQuestionIndex < questions.length - 1" (click)="onNext()"
+                        class="btn btn-primary">Next</button>
+                    <button *ngIf="currentQuestionIndex === questions.length - 1" (click)="onSubmit()"
+                        class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

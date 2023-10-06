@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Patient Dashboard</title>
+
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <img class="im" src="../../../assets/img/2.png" alt="">
+        </div>
+        <div class="sidebar-menu">
+            <ul>
+                <li>
+                    <a class="active" [routerLink]="['/doctors/dashboard']">
+                        <i class="las la-list-alt"></i>
+                        <span class="nav-item">Consultations</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="active" [routerLink]="['/doctors/completed-consultation']">
+                        <i class="las la-check-double"></i>
+                        <span class="nav-item">Completed Consultations</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="active" [routerLink]="['/doctors/declined-consultation']">
+                        <i class="las la-ban"></i>
+                        <span class="nav-item">Declined Consultations</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="active" [routerLink]="['/doctors/edit']">
+                        <i class="las la-plus"></i>
+                        <span class="nav-item">Add Service</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="active" [routerLink]="['/doctors/profile']">
+                        <i class="las la-user"></i>
+                        <span class="nav-item">Profile</span>
+                    </a>
+                </li> <br><br><br>
+                <li>
+                    <a class="active">
+                        <i class="las la-sign-out-alt"></i>
+                        <app-logout-button></app-logout-button>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="main-content">
+        <header>
+            <h2>
+                <label for="">
+                    <span class="las la-list-alt"></span>
+                </label>
+                Consultations
+            </h2>
+            <div class="search-wrapper">
+                <span class="las la-search"></span>
+                <input type="search" placeholder="Search here" />
+            </div>
+            <div class="user-wrapper">
+                <img src="../../assets/img/kk.jpg" width="40px" height="40px" style="border-radius: 50%;" alt="">
+                <div>
+                    <h4>Hello,</h4>
+                    <h5> Khouloud Chaabani</h5>
+                </div>
+            </div>
+        </header>
+        <header style="box-shadow: none;">
+            <div class="dash">
+                <div class="att">
+                    <a class="ac" [routerLink]="['/doctors/consultation', consultationId]">
+                        <i class="las la-stethoscope"></i>
+                        <span class="one">Patient Card </span>
+                    </a>
+
+                </div>
+
+                <div class="att">
+                    <li>
+                        <a class="ac" [routerLink]="['/doctors/note', consultationId]">
+                            <i class="las la-list-alt"></i>
+                            <span class="one">Creation de devis</span>
+                        </a>
+                    </li>
+                </div>
+                <div class="att">
+                    <li>
+                        <a class="ac" [routerLink]="['/doctors/prescription', consultationId]">
+                            <i class="las la-list-alt"></i>
+                            <span class="one">Televersement medical</span>
+                        </a>
+                    </li>
+                </div>
+                <div class="att">
+                    <li>
+                        <a class="ac" [routerLink]="['/doctors/close', consultationId]">
+                            <i class="las la-list-alt"></i>
+                            <span class="one">Close Consultation</span>
+                        </a>
+                    </li>
+                </div>
+
+            </div>
+        </header>
+        <main>
+
+            <div class="fa">
+                <!-- <div class="card">
+            <div class="card-header">
+                <h2>My notes</h2>
+            </div>
+            <div class="card-body">
+                <div *ngFor="let note of notes">
+                    
+
+                         <p><i class="fas fa-check"></i>    {{   note.newNote }}</p>
+                </div>
+            </div>
+        </div> -->
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Ajouter un devis</h2>
+                    </div>
+                    <div class="add-note-form">
+                        <form [formGroup]="noteForm" (ngSubmit)="addNote()" enctype="multipart/form-data">
+                            <!-- <textarea formControlName="newNote" placeholder="Enter your note"></textarea> -->
+                            <input type="file" accept=".pdf" (change)="onFileChange($event)" formControlName="pdfFile">
+                            <button type="submit">Envoyer</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+    </div>
+</body>
+
+</html>

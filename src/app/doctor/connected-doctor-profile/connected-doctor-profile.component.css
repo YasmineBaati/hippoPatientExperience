@@ -1,0 +1,211 @@
+ngb-rating {
+  color: #FFC107;
+  font-size: 30px;
+}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap%27');
+*{
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+list-style-type: none;
+text-decoration: none;
+font-family: 'Poppins', sans-serif;
+} 
+.sidebar{
+  width: 345px;
+  position: fixed;
+  left:0;
+  top:0;
+  height: 100%;
+  background:#01B99A ;
+}
+.sidebar-brand{
+  height:10px;
+  margin-bottom: 150px;
+  margin-left: 60px;
+
+}
+.im{
+  width:150px;
+  height: 150px;
+
+}
+.sidebar-menu{
+  margin-top: 1rem;
+}
+.sidebar-menu li {
+  width: 100%;
+  margin-bottom: 1.7rem;
+  padding-left: 1rem;
+
+}
+.sidebar-menu a {
+  padding-left: 1rem;
+  display: block;
+  color: #fff;
+  font-size: 1.1rem;
+}
+.sidebar-menu a span :first-child {
+  font-size: 1.5rem;
+  padding-right: 1rem;
+}
+.sidebar-menu a.active{
+  background:#fff;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  color: #01B99A;
+  border-radius: 30px 0px 0px 30px;
+  margin-right: 50px;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  padding-right: -90px;
+
+}
+.main-content{
+  margin-left: 345px;
+
+}
+header{
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+header h1 {
+  color: #222;
+}
+header label span {
+  font-size: 1.7rem;
+  padding-right: 1rem;
+}
+.search-wrapper{
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  overflow-x: hidden;
+
+}
+.search-wrapper span {
+  display: inline-block;
+  padding: 0rem 1rem;
+  font-size: 1.5rem;
+}
+.search-wrapper input{
+  height: 100%;
+  padding: .5rem;
+  border: none;
+  outline: none;
+}
+.user-wrapper{
+  display: flex;
+  align-items: center;
+
+}
+.user-wrapper img {
+  margin-right: 2rem;
+}
+.user-wrapper small {
+  display: inline-block;
+  color: #000000;
+}
+.dash{
+  display: flex;
+}
+.attend{
+  background:#01B99A;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  color: #fff;
+  border-radius: 30px 0px 0px 30px;
+  margin-right: 70px;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  padding: 13px;
+  margin-top: 30px;
+  
+}
+.active{
+  color: #fff;
+}
+
+
+
+/* Style the main container */
+.tab1 {
+    padding: 20px;
+    background-color: #f5f5f5;
+    margin: 50px;
+    width: 500px;
+}
+
+/* Style the main box */
+.main-box {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the card */
+.card {
+    border: none;
+}
+
+/* Style the card body */
+.card-body {
+    padding: 20px;
+}
+
+/* Style the card title */
+.card-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* Style the list items */
+.list-group-item {
+    border: none;
+    padding: 5px 0;
+}
+
+/* Style the strong elements within list items */
+.list-group-item strong {
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+/* Style the button */
+.btn-primary {
+    background-color: #01B99A;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Add some margin to the button */
+.btn-primary.mt-3 {
+    margin-top: 15px;
+}
+
+/* Hover effect for the button */
+.btn-primary:hover {
+    background-color: #01B99A;
+}
+
+h2 {
+    color: #333;
+    border-bottom: 2px solid #01B99A;
+    display: inline-block;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 24px;
+ }
+.grand{
+  display: flex;
+}
+

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Patient Dashboard</title>
+  <link rel="stylesheet"
+    href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+</head>
+
+<body>
+  <div class="sidebar">
+    <div class="sidebar-brand">
+      <img class="im" src="../../assets/img/Hippomed.png" alt="">
+    </div>
+    <app-patient-side-bar></app-patient-side-bar>
+  </div>
+  <div class="main-content">
+    <header>
+      <h1>
+        <label for="">
+          <span class="las la-list-alt"></span>
+        </label>
+        Mes consultations
+      </h1>
+      <div class="search-wrapper">
+        <span class="las la-search"></span>
+        <input type="search" placeholder="Recherche .." />
+      </div>
+      <div class="user-wrapper">
+        <img src="../../assets/img/ss.jpg" width="50px" height="50px" alt="" style="border-radius: 50%;">
+      </div>
+    </header>
+    <main class="left-align">
+      <div class="main-content">
+        <!-- Main Content -->
+        <div class="container mt-5">
+          <h4>La liste de consulations en visio</h4>
+          <div *ngIf="consultations.length > 0; else noData">
+            <table class="table table-striped user-list">
+              <thead>
+                <tr>
+                  <th class="light-grey-text">Status</th>
+                  <th class="light-grey-text">Heure</th>
+                  <th class="light-grey-text">Docteur</th>
+                  <th class="light-grey-text">Lien</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let consultation of consultations">
+                  <ng-container *ngIf="consultation.status === 'pending' && consultation.patient.id === patientId">
+                    <td class="light-grey-text">{{ consultation.status }}</td>
+                    <td class="light-grey-text">{{ remainingTimes[consultation.id] }}</td>
+                    <td class="light-grey-text">{{ consultation.doctor.firstName }} {{ consultation.doctor.lastName }}</td>
+                    <td>
+                      <button
+                        (click)="openVideoCall(consultation.link)"
+                        class="btn btn-success"
+                        [disabled]="!enableVideoCall[consultation.id]"
+                        >
+                        Commencer..
+                      </button>
+                    </td>
+                  </ng-container>
+                </tr>
+              </tbody>
+              </table>
+          </div>
+          <ng-template #noData>
+            <p class="light-grey-text">Pas de consultation pour le moment.</p>
+          </ng-template>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

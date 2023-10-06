@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Patient Dashboard</title>
+    
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <img class="im" src="../../../assets/img/2.png" alt="">
+        </div>
+        <div class="sidebar-menu">
+            <ul>
+                <li>
+                    <a class="active" [routerLink]="['/doctors/dashboard']">
+                        <i class="las la-list-alt"></i>
+                        <span class="nav-item">Consultations</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="active" [routerLink]="['/doctors/completed-consultation']">
+                        <i class="las la-check-double"></i>
+                        <span class="nav-item">Completed Consultations</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="active" [routerLink]="['/doctors/declined-consultation']">
+                        <i class="las la-ban"></i>
+                        <span class="nav-item">Declined Consultations</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="active" [routerLink]="['/doctors/edit']">
+                        <i class="las la-plus"></i>
+                        <span class="nav-item">Add Service</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="active" [routerLink]="['/doctors/profile']">
+                        <i class="las la-user"></i>
+                        <span class="nav-item">Profile</span>
+                    </a>
+                </li> <br><br><br>
+                <li>
+                    <a class="active">
+                        <i class="las la-sign-out-alt"></i>
+                        <app-logout-button></app-logout-button>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="main-content">
+        <header>
+            <h1 style="font-size:30px ;">
+                <label for="">
+                  <span class="las la-user"></span>
+              </label>
+                Declined Consultations
+              </h1>
+            <div class="search-wrapper">
+                <span class="las la-search"></span>
+                <input type="search" placeholder="Search here" />
+            </div>
+            <div class="user-wrapper">
+                <img src="../../assets/img/user.png" width="40px" height="40px" alt="">
+                <div>
+                    <h4>Hello,</h4>
+                    <h5> doctor name</h5>
+                </div>
+            </div>
+        </header>
+        <header style="box-shadow: none;">
+            <div class="dash">
+                <div class="attend">
+                    <li>
+                        <a class="active" [routerLink]="['/doctors/dashboard']">
+                            <i class="las la-stethoscope"></i>
+                            <span class="one">Pending Consultation </span>
+                        </a>
+                    </li>
+                </div>
+                <div class="attend">
+                    <li>
+                        <a class="active" [routerLink]="['/doctors/progress']">
+                            <i class="las la-list-alt"></i>
+                            <span class="one">Accepted Consultations</span>
+                        </a>
+                    </li>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="main-box card">
+                <div class="card-header">
+                    <h2>Patient Information</h2>
+                </div>
+                <div class="card-body">
+                    <p><strong>Full Name:</strong>
+                        {{ consultation?.patient?.firstName}} {{ consultation?.patient?.lastName}}
+
+                    </p>
+                    <p><strong>Age:</strong>
+                        {{ consultation?.patient?.patientInformation?.age }}
+                    </p>
+                    <p><strong>Gender:</strong>
+                        {{ consultation?.patient?.patientInformation?.gender }}
+                    </p>
+                    <p><strong>Phone Number:</strong>
+                        {{ consultation?.patient?.patientInformation?.phoneNumber }}
+                    </p>
+                    <p><strong>Concerns:</strong> {{ consultation?.concerns }}</p>
+                    <p><strong>Diseases:</strong> {{ consultation?.diseases }}</p>
+                    <p><strong>Medications:</strong> {{ consultation?.previous }}</p>
+
+
+                    <p><strong>Start Time:</strong> {{ consultation?.startTime | date:'short' }}</p>
+                    <!-- <p><strong>End Time:</strong> {{ consultation?.endTime | date:'short' }}</p> -->
+                    <td>
+                        <button class="btn " (click)="acceptConsultation()">Accept</button>
+                    </td>
+                    <td>
+                        <button class="btn " (click)="declineConsultation()">Decline</button>
+                    </td>
+                </div>
+
+            </div>
+
+
+
+        </main>
+    </div>
+</body>
+
+</html>

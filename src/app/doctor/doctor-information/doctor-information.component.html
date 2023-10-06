@@ -1,0 +1,109 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Patient Dashboard</title>
+        <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css%22%3E">
+    </head>
+<body>
+        <div class="sidebar">
+            <div class="sidebar-brand">
+                <img class="im" src="../../../assets/img/2.png" alt="">
+            </div>
+            <div class="sidebar-menu">
+                <ul>
+                    <li>
+                        <a class="active" [routerLink]="['/doctors/dashboard']">
+                            <i class="las la-stethoscope"></i>
+                            <span class="nav-item">Consultation</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="active" [routerLink]="['/doctors/completed-consultation']">
+            <i class="las la-list-alt"></i>
+            <span class="nav-item">Completed Consultations</span>
+        </a>
+    </li>
+    <li>
+        <a class="active" [routerLink]="['/doctors/declined-consultation']">
+            <i class="las la-folder-open"></i>
+            <span class="nav-item">Declined Consultations</span>
+        </a>
+    </li>
+    <li>
+        <a class="active" [routerLink]="['/doctors/edit']">
+      <i class="las la-user"></i>
+      <span class="nav-item">Add Service</span>
+  </a>
+</li>
+    <li>
+        <a class="active" [routerLink]="['/doctors/profile']">
+            <i class="las la-user"></i>
+            <span class="nav-item">My Profile</span>
+        </a>
+    </li> <br><br><br>
+    <li>
+        <a class="active" [routerLink]="['/doctors/profile']">
+            <app-logout-button></app-logout-button>
+        </a>
+    </li>
+    
+</ul>
+</div>
+</div>
+<div class="main-content">
+    <header >
+        <h1>
+          <label for="">
+          <span class="las la-user"></span>
+          </label>
+          Account
+        </h1>
+        <div class="search-wrapper">
+          <span class="las la-search"></span>
+          <input type="search" placeholder="Search here"/>
+        </div>
+        <div class="user-wrapper">
+          <img src="../../assets/img/user.png" width="40px" height="40px" alt="">
+          <div>
+            <h4>Hello,</h4>
+            <h5> doctor name</h5>
+          </div>
+        </div>
+    </header>
+    
+    <main>
+       
+
+      <div class="tab1">
+        <h2 >Doctor Information</h2>
+
+        <div class="main-box clearfix">
+            <div class="card">
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <strong>Price:</strong> {{oneDoctor.doctorInformation.price}}
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Phone Number:</strong> {{oneDoctor.doctorInformation.phoneNumber}}
+                        </li>
+                        <strong></strong>
+                        <li class="list-group-item">
+                            <strong>From:</strong> {{oneDoctor.doctorInformation.startTime| date:'d MMMM' }}
+                        </li>
+                        <li class="list-group-item">
+                            <strong>To:</strong> {{oneDoctor.doctorInformation.endTime| date:'d MMMM' }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <button class="btn btn-primary mt-3" (click)="navigateToEditDoctor()">Edit Doctor</button>
+        </div>
+     </div>
+
+    </main>
+</div>
+</body>
+</html>

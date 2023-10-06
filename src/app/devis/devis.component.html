@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Patient Dashboard</title>
+  <link rel="stylesheet"
+    href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+</head>
+<body>
+  <div class="sidebar">
+    <div class="sidebar-brand">
+      <img class="im" src="../../assets/img/Hippomed.png" alt="">
+    </div>
+    <app-patient-side-bar> </app-patient-side-bar>
+  </div>
+  <div class="main-content">
+    <header>
+      <h1>
+        <label for="">
+          <span class="las la-folder-open"></span>
+        </label>
+        Mes devis
+      </h1>
+      <div class="search-wrapper">
+        <span class="las la-search"></span>
+        <input type="search" placeholder="Recherche .." />
+      </div>
+      <div class="user-wrapper">
+        <img src="../../assets/img/ss.jpg" width="50px" height="50px" alt="" style="border-radius: 50%;">
+      </div>
+    </header>
+    <main class="left-align">
+        <section class="main">
+            <div class="main-body">
+              <div class="main-content">
+                <div class="container mt-5">
+                  <h4>La liste de devis </h4>
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th class="light-grey-text">Docteur</th>
+                        <th class="light-grey-text">Date</th>
+                        <th class="green-text center-align">Devis</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr >
+                        <td class="light-grey-text"><a> </a></td>
+                        <td class="light-grey-text"></td>
+                        <td class="green-text center-align">
+                          <a>
+                          </a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </section>
+    </main>
+  </div>
+</body>
+</html>

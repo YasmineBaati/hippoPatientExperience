@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Patient Dashboard</title>
+  <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+</head>
+<body>
+ <div class="sidebar">
+  <div class="sidebar-brand">
+    <img class="im" src="../../assets/img/logo.png" alt="">
+  </div>
+  <div class="sidebar-menu">
+    <ul>
+      <li>
+        <a class="active" routerLink="/patients/appointement">
+        <i class="las la-stethoscope"></i>
+        <span class="nav-item">Make A Consultation</span>
+        </a>
+      </li>
+      <li>
+        <a class="active" routerLink="/patients/consultations">
+        <i class="las la-list-alt"></i>
+        <span class="nav-item">Consultations</span>
+        </a>
+      </li>
+      <li>
+        <a class="active" routerLink="/patients/documents">
+        <i class="las la-folder-open"></i>
+        <span class="nav-item">Documents</span>
+        </a>
+      </li>
+      <li>
+        <a class="active" routerLink="/patients/account">
+        <i class="las la-user"></i>
+        <span class="nav-item">Account</span>
+        </a>
+      </li><br><br><br><br><br><br>
+      <li>
+        <a class="active" style="padding-top:10px; height:60px;"  routerLink="/patients/account">
+          <i class="las la-sign-out-alt"></i>
+          <span class="nav-item" style="margin-left: -10px; "><app-logout-button></app-logout-button></span>
+        </a>
+      </li>
+    </ul>
+  </div>
+ </div>
+ <div class="main-content">
+  <header>
+    <h1>
+      <label for="">
+      <span class="las la-stethoscope"></span>
+      </label>
+      Make A Consultation
+    </h1>
+    <div class="search-wrapper">
+      <span class="las la-search"></span>
+      <input type="search" placeholder="Search here"/>
+    </div>
+    <div class="user-wrapper">
+      <img src="../../assets/img/ss.jpg" width="50px" height="50px" alt="" style="border-radius: 50%;">
+      <div>
+        <h4>Hello,</h4>
+        <h5>{{onePrescription.patient.firstName}} {{onePrescription.patient.lastName}} </h5>
+      </div>
+    </div>
+  </header>
+  <main class="left-align">
+    <section class="main">
+      <div class="main-body">
+        <div class="main-content">
+          <div class="container mt-5">
+            <div class="card prescription-card">
+              <div class="card-header">
+                <h2>Dr {{onePrescription.doctor.firstName}} {{onePrescription.doctor.lastName}}</h2>
+                <p>{{onePrescription.doctor.proficiency}}</p>
+                <p>{{onePrescription.doctor.doctorInformation.phoneNumber}}</p>
+                <p>{{onePrescription.doctor.email}}</p>
+              </div>
+              <div class="card-body">
+                <!-- Content inside the prescription card -->
+                <div class="prescription-content">
+                  <div class="patient-info">
+                    <h3>Patient Information</h3>
+                    <p>Name: {{onePrescription.patient.firstName}} {{onePrescription.patient.lastName}}</p>
+                    <p>Age : {{onePrescription.patient.patientInformation.age}}</p>
+                  </div>
+                  <div class="medication-info">
+                    <h3>Medication</h3>
+                    <ul>
+                      <li *ngFor="let oneMedicine of onePrescription.medicines">
+                        {{oneMedicine.medicineName}}: Take {{oneMedicine.morning}} tablet in the morning {{oneMedicine.afternoon}} in the afternoon {{oneMedicine.night}} night
+                      </li>
+                      <!-- Add more medication details as needed -->
+                    </ul>
+                  </div>
+                  <div class="doctor-info">
+                    <h3>Doctor's Recommendation</h3>
+                    <p>Take the prescribed medication as directed. Follow up after one week.</p>
+                    <!-- Add the QR code component with the generated QR code data -->
+                    <qrcode [qrdata]="'kkom'" [width]="150" [errorCorrectionLevel]="'M'"></qrcode>
+                  </div>
+                </div>
+                <div class="print-button-container">
+                  <button class="btn btn-primary print-button" (click)="printPrescription()">Print</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>       
+ </div>
+</body>
+</html>
+
+

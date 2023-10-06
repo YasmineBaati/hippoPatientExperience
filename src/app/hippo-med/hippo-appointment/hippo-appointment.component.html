@@ -1,0 +1,77 @@
+ <!-- ======= Appointment Section ======= -->
+ <section id="appointment" class="appointment section-bg">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Prenez rendez-Vous</h2>
+        <p>Remplissez simplement chaque case pour prendre un rendez-Vous avec un de nos partenaires.</p>
+      </div>
+
+      <form action="forms/appointment.php" method="post" role="form" class="php-email-form">
+        <div class="row">
+          <div class="col-md-4 form-group">
+            <input type="text" name="name" class="form-control" id="firstName" placeholder="Votre Prenom" data-rule="minlen:4"
+              data-msg="Svp entrez au moins quatre caractères">
+            <div class="validate"></div>
+          </div>
+          <div class="col-md-4 form-group">
+            <input type="text" name="name" class="form-control" id="lastName" placeholder="Votre Nom" data-rule="minlen:4"
+              data-msg="Svp entrez au moins quatre caractères">
+            <div class="validate"></div>
+          </div>
+          
+          <div class="col-md-4 form-group mt-3 mt-md-0">
+            <input type="email" class="form-control" name="email" id="email" placeholder="Votre Email"
+              data-rule="email" data-msg="Svp entrez un email valide">
+            <div class="validate"></div>
+          </div>
+          </div>
+          <div class="row">
+
+          <div class="col-md-4 form-group mt-3 mt-md-0">
+            <input type="tel" class="form-control" name="phone" id="phone" placeholder="Votre téléphone"
+              data-rule="minlen:4" data-msg="Svp entrez au moins quatre caractères">
+            <div class="validate"></div>
+          </div>
+
+          <div class="col-md-4 form-group">
+            <input type="datetime-local" name="dateAndTime" class="form-control" id="dateAndTime"
+              placeholder="Date and Time of the Appointment" data-rule="required"
+              data-msg="Please enter a valid date and time">
+            <div class="validate"></div>
+          </div>
+          
+          <!-- <div class="col-md-4 form-group mt-3">
+            <select name="department" id="department" class="form-select">
+              <option value="">Selectionnez un département/option>
+              <option value="Department 1">Médecine dentaire</option>
+              <option value="Department 2">Médecine esthétique </option>
+              <option value="Department 3">Cliniques</option>
+            </select>
+            <div class="validate"></div>
+          </div> -->
+          <div class="col-md-4 form-group">
+            <select name="doctor" id="doctor" class="form-select">
+              <option value="">Select Doctor</option>
+              <option value="Doctor 1">Docteur Aouissaoui</option>
+              <option value="Doctor 2">Docteur Ben ammar</option>
+              <option value="Doctor 3">Docteur Nouri</option>
+            </select>
+            <div class="validate"></div>
+          </div>
+        </div>
+
+        <div class="form-group mt-3">
+          <textarea class="form-control" name="message" rows="5" placeholder="Message (Optional)"></textarea>
+          <div class="validate"></div>
+        </div>
+        <div class="mb-3">
+          <div class="loading">Loading</div>
+          <div class="error-message"></div>
+          <div class="sent-message">Votre rendez-Vous a été envoyé avec succès. Merci!</div>
+        </div>
+        <div class="text-center"><button type="submit">Prenez rendez-Vous</button></div>
+      </form>
+
+    </div>
+  </section><!-- End Appointment Section -->

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--divinectorweb.com-->
+<head>
+    <meta charset="UTF-8">
+    <title>How to 3D Testimonial Carousel using Materialize CSS</title> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+    
+    
+    <div class="carousel">
+        <a class="carousel-item" href="#">
+            <div class="testi">
+                <div class="img-area">
+                    <img src="../../assets/img/05.jpg">
+                </div>
+                <p>"I had my first telemedicine appointment yesterday, and I was pleasantly surprised. It was so easy to schedule, and I didn't have to take time off work or travel to a clinic. The doctor was attentive and addressed all my concerns. I'll definitely use this service again."</p>
+                <h4>Sami</h4>
+                <h5>45 years old</h5>
+            </div>
+        </a>
+        <a class="carousel-item" href="#">
+            <div class="testi">
+                <div class="img-area">
+                    <img src="../../assets/img/01.jpg">
+                </div>
+                <p>"Living in a rural area, it's not always easy to access specialized medical care. Telemedicine has made it possible for me to consult with specialists who are miles away. It's a game-changer for those of us in underserved areas."</p>
+                <h4>Amina</h4>
+                <h5>22 years old</h5>
+            </div>
+        </a>
+        <a class="carousel-item" href="#">
+            <div class="testi">
+                <div class="img-area">
+                    <img src="../../assets/img/02.jpg">
+                </div>
+                <p>"I've never been a fan of waiting in doctor's offices, so telemedicine is a dream come true. No more sitting in crowded waiting rooms for hours. I had a video consultation, and the doctor was punctual, listened to my concerns, and provided clear instructions. It's efficient and saves so much time."</p>
+                <h4> Nizar</h4>
+                <h5>29 years old</h5>
+            </div>
+        </a>
+        <a class="carousel-item" href="#">
+            <div class="testi">
+                <div class="img-area">
+                    <img src="../../assets/img/03.jpg">
+                </div>
+                <p>"As someone dealing with anxiety and depression, accessing mental health care through telemedicine has been a lifeline. I've been able to connect with a therapist regularly, which has made a significant difference in my mental well-being. I appreciate the anonymity and convenience.""</p>
+                <h4> Mehdi</h4>
+                <h5>40 years old</h5>
+            </div>
+        </a>
+        <a class="carousel-item" href="#">
+            <div class="testi">
+                <div class="img-area">
+                    <img src="../../assets/img/04.jpg">
+                </div>
+                <p>"I needed a prescription refill, and telemedicine made it a breeze. I had a quick consultation with a doctor, and within minutes, I had a new prescription sent to my pharmacy. It couldn't have been more convenient."</p>
+                <h4>Lilia</h4>
+                <h5>31 years old</h5>
+            </div>
+        </a>
+      
+   </div>
+
+    
+    
+    
+    <script
+  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $('.carousel').carousel({
+			padding: 200
+	});
+	autoplay();
+	function autoplay() {
+		$('.carousel').carousel('next');
+		setTimeout(autoplay, 4500);
+	}
+  });
+</script>
+</body>
+</html>

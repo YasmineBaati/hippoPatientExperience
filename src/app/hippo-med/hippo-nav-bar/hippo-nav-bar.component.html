@@ -1,0 +1,24 @@
+<!-- header.component.html -->
+<header id="header" [class.header-scrolled]="isScrolled" class="fixed-top">
+  <div class="container d-flex align-items-center">
+    <h1 class="logo me-auto">
+      <a href="index.html"><img src="./assets/img/Head/Hippomed.png" alt=""></a>
+    </h1>
+
+    <nav id="navbar" class="navbar order-last order-lg-0">
+      <ul>
+        <li><a class="nav-link scrollto active" (click)="scrollToSection('hero')">Home</a></li>
+        <li><a class="nav-link scrollto" (click)="scrollToSection('about')">A Propos</a></li>
+        <li><a class="nav-link scrollto" (click)="scrollToSection('services')">Services</a></li>
+        <li><a class="nav-link scrollto" (click)="scrollToSection('departments')">Departements</a></li>
+        <li><a class="nav-link scrollto" (click)="scrollToSection('doctors')">Notre Equipe</a></li>
+        <li><a class="nav-link scrollto" (click)="scrollToSection('contact')">Contact</a></li>
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav>
+
+    <a  [routerLink]="['/patients/register']" class="appointment-btn scrollto">
+      <span class="d-none d-md-inline"></span> Prenez rendez-vous
+    </a>
+  </div>
+</header>

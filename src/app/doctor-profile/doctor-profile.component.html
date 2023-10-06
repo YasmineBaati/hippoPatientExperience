@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Doctor Profile</title>
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <img class="im" src="../../assets/img/logo.png" alt="">
+        </div>
+        <div class="sidebar-menu">
+            <ul>
+                <li>
+                    <a class="active" routerLink="/patients/appointement">
+                        <i class="las la-stethoscope"></i>
+                        <span class="nav-item">Make A Consultation</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="active" routerLink="/patients/consultations">
+                        <i class="las la-list-alt"></i>
+                        <span class="nav-item">Consultations</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="active" routerLink="/patients/documents">
+                        <i class="las la-folder-open"></i>
+                        <span class="nav-item">Documents</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="active" routerLink="/patients/account">
+                        <i class="las la-user"></i>
+                        <span class="nav-item">Account</span>
+                    </a>
+                </li><br><br><br><br><br><br>
+                <li>
+                  <a class="active" style="padding-top:10px; height:60px;"  routerLink="/patients/account">
+                    <i class="las la-sign-out-alt"></i>
+                    <span class="nav-item" style="margin-left: -10px; "><app-logout-button></app-logout-button></span>
+                  </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="main-content">
+        <header>
+            <h1>
+                <label for="">
+                    <span class="las la-list-alt"></span>
+                </label>
+                Doctor Profile
+            </h1>
+            <div class="search-wrapper">
+                <span class="las la-search"></span>
+                <input type="search" placeholder="Search here" />
+            </div>
+            <div class="user-wrapper">
+                <img src="../../assets/img/ss.jpg" width="50px" height="50px" alt="" style="border-radius: 50%;">
+                <div>
+                    <h4>Hello,</h4>
+                    <h5>{{patient.firstName}} {{patient.lastName}}</h5>
+                </div>
+            </div>
+        </header>
+        <div class="container mt-4">
+            <!-- Doctor Full Name -->
+            <h1>{{ thisDoctor.firstName }} {{ thisDoctor.lastName }}</h1>
+            <div class="average-rating">
+                <ngb-rating [max]="5" [rate]="calculateAverageRating(thisDoctor.doctorReviews)"
+                    [readonly]="true"></ngb-rating>
+            </div>
+            <div class="row">
+                <!-- Doctor Information Card -->
+                <div class="col-md-6" style="margin-right: 50px;width:450px;margin-left:60px">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            Doctor Information
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <strong>Price:</strong> {{ thisDoctor.doctorInformation.price }}
+                                </li><br/>
+                                <li class="list-group-item">
+                                    <strong>Phone Number:</strong> {{ thisDoctor.doctorInformation.phoneNumber }}
+                                </li><br/>
+                                <li class="list-group-item">
+                                    <strong>Availability:</strong>
+                                    From: {{ thisDoctor.doctorInformation.startTime | date:'EEEE, dd/MM' }}
+                                    To: {{ thisDoctor.doctorInformation.endTime | date:'EEEE, dd/MM' }}
+                                </li><br/>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rating and Reviews Card -->
+                <div class="col-md-6" style="margin-right: 50px;width:450px;margin-left:60px">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            Rating and Reviews
+                        </div>
+                        <div class="card-body">
+                            <!-- Display Doctor's Rating -->
+                            <div class="mb-3">
+                                <div *ngIf="thisDoctor.doctorReviews.length > 0">
+                                    <div class="rating" *ngFor="let review of thisDoctor.doctorReviews"></div>
+
+                                </div>
+                                <div *ngIf="thisDoctor.doctorReviews.length === 0">
+                                    No reviews available.
+                                </div>
+                            </div>
+
+                            <!-- Display Patient Reviews -->
+                            <div *ngFor="let review of thisDoctor.doctorReviews" class="mb-3">
+                                <div class="mb-2">
+                                    <strong>{{ review.patient.firstName }}</strong>
+                                    <span class="text-muted"> - {{ review.createdAt | relativeTime }}</span>
+                                    <ngb-rating [max]="5" [(rate)]="review.rate" [readonly]="false"></ngb-rating>
+                                </div>
+                                <p>{{ review.comment }}</p>
+                            </div>
+
+                            <form (ngSubmit)="addReview()" [formGroup]="reviewForm">
+
+                                <div class="form-group">
+                                    <label for="rate">Rating:</label>
+                                    <ngb-rating [max]="5" [(rate)]="rate" [readonly]="false"></ngb-rating>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="comment">Comment:</label>
+                                    <textarea class="form-control" id="comment" name="comment" formControlName="comment"
+                                        required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>

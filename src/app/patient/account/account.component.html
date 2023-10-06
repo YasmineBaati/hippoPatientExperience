@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Patient Dashboard</title>
+  <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+</head>
+<body>
+ <div class="sidebar">
+  <div class="sidebar-brand">
+    <img class="im" src="../../../assets/img/Hippomed.png" alt="">
+  </div>
+<app-patient-side-bar></app-patient-side-bar>
+ </div>
+ <div class="main-content">
+  <header>
+    <h1>
+      <label for="">
+      <span class="las la-user"></span>
+      </label>
+      Mon compte
+    </h1>
+    <div class="search-wrapper">
+      <span class="las la-search"></span>
+      <input type="search" placeholder="Recherche .."/>
+    </div>
+    <div class="user-wrapper">
+      <img src="../../assets/img/ss.jpg" width="50px" height="50px" alt="" style="border-radius: 50%;">
+    </div>
+  </header>
+  <main>
+    <section class="main">
+        <div class="main-body">
+            <form [formGroup]="patientForm" (ngSubmit)="onSubmit()">
+                <h4 style="  width: 400px; ">Informations personnelles</h4>
+                <div class="form-group">
+                    <label for="firstName">Prénom</label>
+                    <input type="text" id="firstName" name="firstName" class="form-control" formControlName="firstName">
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Nom</label>
+                    <input type="text" id="lastName" name="lastName" class="form-control" formControlName="lastName">
+                </div>
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" name="age" class="form-control" formControlName="age">
+                </div>
+                <div class="form-group">
+                    <label for="phoneNumber">Numéro de télèphone</label>
+                    <input type="number" id="phoneNumber" name="phoneNumber" class="form-control" formControlName="phoneNumber">
+                </div>
+                <div class="form-group">
+                    <label for="gender">Genre</label>
+                    <select id="gender" name="gender" class="form-control" formControlName="gender">
+                        <option value="Homme">Homme</option>
+                        <option value="Femme">Femme</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Editer</button>
+            </form>
+        </div>
+    </section>
+</main>
+ </div>
+</body>
+</html>
+
+
+

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Patient Dashboard</title>
+  <link rel="stylesheet"
+    href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+</head>
+
+<body>
+  <div class="sidebar">
+    <div class="sidebar-brand">
+<<<<<<< HEAD
+      <img class="im" src="../../assets/img/Hippomed.png" alt="">
+=======
+      <img class="im" src="../../assets/img/logo.png" alt="">
+    </div>
+    <div class="sidebar-menu">
+      <ul>
+        <li>
+          <a class="active" routerLink="/patients/appointement">
+            <i class="las la-stethoscope"></i>
+            <span class="nav-item">Make A Consultation</span>
+          </a>
+        </li>
+        <li>
+          <a class="active" routerLink="/patients/consultations">
+            <i class="las la-list-alt"></i>
+            <span class="nav-item">Consultations</span>
+          </a>
+        </li>
+        <li>
+          <a class="active" routerLink="/patients/documents">
+            <i class="las la-folder-open"></i>
+            <span class="nav-item">Documents</span>
+          </a>
+        </li>
+        <li>
+          <a class="active" routerLink="/patients/account">
+            <i class="las la-user"></i>
+            <span class="nav-item">Account</span>
+          </a>
+        </li><br><br><br><br><br><br>
+        <li>
+          <a class="active" style="padding-top:10px; height:60px;" >
+            <i class="las la-sign-out-alt"></i>
+            <span class="nav-item" style="margin-left: -10px; "><app-logout-button></app-logout-button></span>
+          </a>
+        </li>
+      </ul>
+>>>>>>> 9439906675e7974aac4c19b16cac69d597ef1b6f
+    </div>
+    <app-patient-side-bar></app-patient-side-bar>
+  </div>
+  <div class="main-content">
+    <header>
+      <h1>
+        <label for="">
+          <span class="las la-stethoscope"></span>
+        </label>
+        Prise de rendez-vous
+      </h1>
+      <div class="search-wrapper">
+        <span class="las la-search"></span>
+        <input type="search" placeholder="Recherche .." />
+      </div>
+      <div class="user-wrapper">
+        <img src="../../assets/img/ss.jpg" width="50px" height="50px" alt="" style="border-radius: 50%;">
+      </div>
+    </header>
+    <main>
+      <section class="main">
+        <div class="main-body">
+          <h4>Sélectionnez votre médecin spécialiste!</h4>
+          <div class="table-responsive">
+            <table class="table user-list">
+              <thead>
+                <tr>
+                  <th class="light-grey-text">Nom et Prénom</th>
+                  <th class="light-grey-text">Spécialité</th>
+                  <th style="color: #333;">Adresse</th>
+                  <th class="light-grey-text">Avoir un devis</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let doctor of doctors">
+                  <td class="center-align">
+
+                    <a [routerLink]="['/patients/doctor', doctor.id]"><img [src]="doctor.image" alt="" class="user-image"></a>  <br>
+                    <span class="user-link">{{ doctor.firstName }} {{ doctor.lastName }}</span>
+                    <span class="user-subhead">{{ doctor.proficiency }}</span>
+                  </td>
+                  <td class="center-align light-grey-text">
+                    {{ doctor.createdAt | date: 'yyyy-MM-dd' }}
+                  </td>
+                  <td class="center-align">
+                    <span style="color: #333;">{{ doctor?.doctorInformation?.price }} DT</span>
+                  </td>
+                  <td class="center-align light-grey-text">
+                    <span class="user-email">{{ doctor.email }}</span>
+                  </td>
+                  <td class="center-align light-grey-text">
+                    <div *ngFor="let time of consultationTimes; let i = index">
+                      <button class="btn btn-primary" (click)="onTimeClick(consultationTimes[i], doctor.id)">{{
+                        consultationTimes[i] }}</button>
+                      <span *ngIf="consultationTimes[i + 1]"> - </span>
+                      <button class="btn btn-primary" *ngIf="consultationTimes[i + 1]"
+                        (click)="onTimeClick(consultationTimes[i + 1], doctor.id)">{{ consultationTimes[i + 1]
+                        }}</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+
+</html>
